@@ -1,6 +1,6 @@
 # -*- MakeFile -*-
 
-NAME	= ex01
+NAME	= ex03
 
 SRCS	=	Bureaucrat.cpp \
 			Form.cpp \
