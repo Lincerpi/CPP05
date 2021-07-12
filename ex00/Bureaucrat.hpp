@@ -17,7 +17,17 @@ class Bureaucrat
 		Bureaucrat& operator=(const Bureaucrat& op);
 		std::string const &getName() const;
 		int getGrade() const;
-
+		
+		class GradeTooHighException: public std::exception
+		{
+			virtual const char* what() const throw();
+		};
+		class GradeTooLowException: public std::exception
+		{
+			virtual const char* what() const throw();
+		};
+		void incrementGrade();
+		void decrementGrade();
 };
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat);

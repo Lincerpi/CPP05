@@ -5,10 +5,10 @@ Bureaucrat::Bureaucrat(std::string const &name, int grade)
 name(name),
 grade(grade)
 {
-	// if (grade < 1)
-	// 	throw ;
-	// if (grade > 150)
-	// 	throw ;
+	if (grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
 }
 
 Bureaucrat::~Bureaucrat()
@@ -18,10 +18,10 @@ Bureaucrat::Bureaucrat(const Bureaucrat& copy):
 name(copy.name),
 grade(copy.grade)
 {
-	// if (grade < 1)
-	// 	throw ;
-	// if (grade > 150)
-	// 	throw ;
+	if (grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& op)
@@ -40,6 +40,30 @@ std::string const &Bureaucrat::getName() const
 int Bureaucrat::getGrade() const
 {
 	return (grade);
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return ("Bureaucrat Grade Too High!!");
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("Bureaucrat Grade Too Low!!");
+}
+
+void Bureaucrat::incrementGrade()
+{
+	grade--;
+	if (grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+}
+
+void Bureaucrat::decrementGrade()
+{
+	grade++;
+	if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
 }
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat)
