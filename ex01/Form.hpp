@@ -21,8 +21,8 @@ class Form
 		Form(const Form& copy);
 		Form& operator=(const Form& op);
 		std::string const &getName() const;
-		int const getSigneGrade() const;
-		int const getSignedExecute() const;
+		int getSignedGrade() const;
+		int getSignedExecute() const;
 		bool getIsSigned() const;
 		class GradeTooHighException: public std::exception
 		{	virtual const char* what() const throw(); };
