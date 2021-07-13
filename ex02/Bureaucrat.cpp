@@ -76,6 +76,23 @@ void Bureaucrat::signForm(Form& form) const
 		std::cout << getName() << " sign " << form << "!" << std::endl;
 }
 
+void Bureaucrat::executeForm(Form const &form)
+{
+	if (!form.getIsSigned())
+	{
+		std::cout << *this << " cannot execute " << form.getName() << " because the form is unsigned." << std::endl;
+	}
+	else if (form.getSignedExecute() < grade)
+	{
+		std::cout << *this << " cannot execute " << form.getName() << " because it's grade is too low." << std::endl;
+	}
+	else
+	{
+		std::cout << *this << " executes " << form.getName() << std::endl;
+	}
+	form.execute(*this);
+}
+
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat)
 {
 	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".";

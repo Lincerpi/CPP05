@@ -16,7 +16,7 @@ class Form
 		Form();
 
 	public:
-		~Form();
+		virtual ~Form();
 		Form(std::string const &name, int const signedGrade, int const signedExecute);
 		Form(const Form& copy);
 		Form& operator=(const Form& op);
