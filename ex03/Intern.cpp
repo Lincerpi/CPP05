@@ -28,6 +28,21 @@ Intern& Intern::operator=(const Intern &op)
 const char* Intern::FormNotExistException::what() const throw()
 {	return ("Error Form: Form not exist!"); }
 
+Form* Intern::createForm(std::string target, int i) const
+{
+	Form *form[3];
+	Form *tmp;
+
+	form[0] = new ShrubberyCreationForm(target);
+	form[1] = new RobotomyRequestForm(target);
+	form[2] = new PresidentialPardonForm(target); 
+	tmp = form[i];
+	for (int i = 0; i < 3; i++)
+		delete form[i];
+	
+	return (tmp);
+}
+
 Form* Intern::makeForm(std::string const &name, std::string target) const
 {
 	Form *form = nullptr;
@@ -36,7 +51,7 @@ Form* Intern::makeForm(std::string const &name, std::string target) const
 	{
 		if (name == type[i])
 		{
-			form = new RobotomyRequestForm(target); // aggiungere scelta FORM
+			form = createForm(target, i);
 			std::cout << "Intern creates " << *form << std::endl;
 			return (form);
 		}

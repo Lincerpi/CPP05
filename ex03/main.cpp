@@ -9,12 +9,13 @@
 
 int main()
 {
-	// TODO Intern.cpp makeForm()
-	
 	Intern someIntern;
 	Form *form;
 
 	form = someIntern.makeForm("Robotomy Request", "Robot");
+	std::cout << " --- " << std::endl;
+	
+	form = someIntern.makeForm("Presidential Pardon", "Presidential");
 	std::cout << " --- " << std::endl;
 	try {
 		form = someIntern.makeForm("Wrong Form Type", "Bad");
@@ -23,7 +24,6 @@ int main()
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	delete form;
-
+	
 	return (0);
 }
