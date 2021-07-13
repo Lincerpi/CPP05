@@ -11,6 +11,7 @@ class PresidentialPardonForm: public Form
 		PresidentialPardonForm();
 
 	public:
+		static std::string const &name;
 		virtual ~PresidentialPardonForm();
 		PresidentialPardonForm(std::string const target);
 		PresidentialPardonForm(const PresidentialPardonForm& copy);

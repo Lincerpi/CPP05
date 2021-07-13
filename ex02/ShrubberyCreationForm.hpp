@@ -13,6 +13,7 @@ class ShrubberyCreationForm: public Form
 		std::string tree() const;
 
 	public:
+		static std::string const &name;
 		virtual ~ShrubberyCreationForm();
 		ShrubberyCreationForm(std::string const &target);
 		ShrubberyCreationForm(const ShrubberyCreationForm& copy);

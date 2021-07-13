@@ -70,25 +70,26 @@ void Bureaucrat::signForm(Form& form) const
 {
 	if (form.getIsSigned())
 		std::cout << getName() << " cannot sign " << form << " because form already signed!" << std::endl;
-	else if (getGrade() < form.getSignedGrade())
+	else if (getGrade() > form.getSignedGrade())
 		std::cout << getName() << " cannot sign " << form << " because it's grade is too low!" << std::endl;
 	else
 		std::cout << getName() << " sign " << form << "!" << std::endl;
+	form.isSigned = true;
 }
 
 void Bureaucrat::executeForm(Form const &form)
 {
 	if (!form.getIsSigned())
 	{
-		std::cout << *this << " cannot execute " << form.getName() << " because the form is unsigned." << std::endl;
+		std::cout << *this << " cannot execute " << form << " because the form is unsigned." << std::endl;
 	}
 	else if (form.getSignedExecute() < grade)
 	{
-		std::cout << *this << " cannot execute " << form.getName() << " because it's grade is too low." << std::endl;
+		std::cout << *this << " cannot execute " << form << " because it's grade is too low." << std::endl;
 	}
 	else
 	{
-		std::cout << *this << " executes " << form.getName() << std::endl;
+		std::cout << *this << " executes " << form << std::endl;
 	}
 	form.execute(*this);
 }

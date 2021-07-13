@@ -3,9 +3,11 @@
 PresidentialPardonForm::~PresidentialPardonForm()
 {}
 
+std::string const &PresidentialPardonForm::name = std::string("Presidential Pardon");
+
 PresidentialPardonForm::PresidentialPardonForm(std::string const target)
 :
-Form("PresidentialPardonForm", 25, 5),
+Form(PresidentialPardonForm::name, 25, 5),
 target(target)
 {}
 

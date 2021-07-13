@@ -3,9 +3,11 @@
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {}
 
+std::string const &ShrubberyCreationForm::name = std::string("Shrubbery Creation");
+
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target)
 :
-Form("ShrubberyCreationForm", 145, 137),
+Form(ShrubberyCreationForm::name, 145, 137),
 target(target)
 {}
 

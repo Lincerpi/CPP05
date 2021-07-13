@@ -12,10 +12,10 @@ class Form
 		std::string const &name;
 		int const signedGrade;
 		int const signedExecute;
-		bool	isSigned;
 		Form();
 
 	public:
+		bool	isSigned;
 		virtual ~Form();
 		Form(std::string const &name, int const signedGrade, int const signedExecute);
 		Form(const Form& copy);
